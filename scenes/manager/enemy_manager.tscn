@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx1rkpuwmqw53"]
+
+[ext_resource type="Script" uid="uid://dk0s8tlc841xq" path="res://scenes/manager/enemy_manager.gd" id="1_jybml"]
+[ext_resource type="PackedScene" uid="uid://cntibsmpr8ono" path="res://scenes/mouse_enemy/mouse_enemy.tscn" id="2_bortd"]
+[ext_resource type="PackedScene" uid="uid://bg4v73wlydv6s" path="res://scenes/wizard_enemy/wizard_enemy.tscn" id="3_bortd"]
+[ext_resource type="PackedScene" uid="uid://bjgvfov3ewq7c" path="res://scenes/carb_enemy/crab_enemy.tscn" id="4_8jsg4"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_jybml")
+mouse_enemy_scene = ExtResource("2_bortd")
+wizard_enemy_scene = ExtResource("3_bortd")
+carb_enemy_scene = ExtResource("4_8jsg4")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

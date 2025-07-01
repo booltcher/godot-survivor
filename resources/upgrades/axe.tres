@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgradeWithController" load_steps=3 format=3 uid="uid://cgc2rigvwtbgn"]
+
+[ext_resource type="PackedScene" uid="uid://dv36g6q6dw8hn" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="1_lxg8a"]
+[ext_resource type="Script" uid="uid://w7c8jrtpaeqd" path="res://resources/upgrades/ability_upgrade_with_controller.gd" id="1_vgov1"]
+
+[resource]
+script = ExtResource("1_vgov1")
+ability_controller_scene = ExtResource("1_lxg8a")
+id = "axe"
+name = "获得飞斧"
+max_quantity = 1
+description = "发射旋转飞斧"

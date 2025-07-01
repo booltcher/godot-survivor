@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dftq355ywooe7"]
+
+[ext_resource type="Script" uid="uid://bq0otg7f65t7o" path="res://scenes/ui/upgrade_card_item.gd" id="1_c7c43"]
+
+[node name="UpgradeCardItem" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 150)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_c7c43")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "test name"
+
+[node name="DescLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "here is test description"
+autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

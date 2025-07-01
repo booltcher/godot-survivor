@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmvfg6y2lgobx"]
+
+[ext_resource type="FontFile" uid="uid://ctdc87wcdgvk5" path="res://resources/theme/pixelFont-7-8x14-sproutLands.ttf" id="1_vfv43"]
+
+[resource]
+default_font = ExtResource("1_vfv43")
