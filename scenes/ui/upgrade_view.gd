@@ -21,6 +21,8 @@ func set_upgrade_list(upgrades: Array[AbilityUpgrade]):
 		delay += 0.2
 
 func on_select_upgrade(upgrade: AbilityUpgrade):
+	$AnimationPlayer.play("out")
+	await $AnimationPlayer.animation_finished
 	select_upgrade.emit(upgrade)
 	get_tree().paused = false
 	queue_free()
