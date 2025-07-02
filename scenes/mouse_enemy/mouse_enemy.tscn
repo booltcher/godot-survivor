@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cntibsmpr8ono"]
+[gd_scene load_steps=17 format=3 uid="uid://cntibsmpr8ono"]
 
 [ext_resource type="Script" uid="uid://bscjwtfqrnug7" path="res://scenes/mouse_enemy/mouse_enemy.gd" id="2_480g2"]
 [ext_resource type="PackedScene" uid="uid://dykt3xswr33r7" path="res://scenes/component/health_component.tscn" id="2_wkka2"]
@@ -8,8 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://lto1ypqma2em" path="res://scenes/component/death_component.tscn" id="6_sixu8"]
 [ext_resource type="PackedScene" uid="uid://b7u4wy588oiip" path="res://scenes/component/hit_flash_component.tscn" id="6_tqynq"]
 [ext_resource type="PackedScene" uid="uid://cw8ksav4nrvyr" path="res://scenes/component/hurtbox_component.tscn" id="7_akxox"]
-[ext_resource type="Material" uid="uid://cvo31ouru0av7" path="res://scenes/component/hit_flash_component_material.tres" id="7_r7di6"]
+[ext_resource type="Shader" uid="uid://d2ciwx0udrj7d" path="res://scenes/component/hit_flash_component.gdshader" id="7_tqynq"]
 [ext_resource type="Texture2D" uid="uid://dxdjtwse7bhib" path="res://scenes/basic_enemy/basic_enemy.png" id="8_xmb4w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7di6"]
+resource_local_to_scene = true
+shader = ExtResource("7_tqynq")
+shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3kwy"]
 radius = 13.0
@@ -74,7 +79,7 @@ acceleration = 40.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tqynq")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visual/Sprite2D")
-hit_flash_component_material = ExtResource("7_r7di6")
+hit_flash_component_material = SubResource("ShaderMaterial_r7di6")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_sixu8")]
 health_component = NodePath("../HealthComponent")

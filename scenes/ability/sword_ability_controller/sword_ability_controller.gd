@@ -6,6 +6,7 @@ extends Node
 @export var damage = 100
 
 var base_wait_time = 1.5
+var base_damage_percent = 1
 
 func _ready() -> void:
 	$Timer.timeout.connect(on_timer_timeout)
@@ -14,12 +15,14 @@ func _ready() -> void:
 	
 
 func on_emit_update_ability_upgrades(upgrade, current_upgrades):
-	if not upgrade.id == "sword_rate":
-		return
+	if upgrade.id == "sword_rate":
+		var new_wait_time = base_wait_time * (1 - (current_upgrades[upgrade.id]["quantity"] * .1))
+		$Timer.wait_time = new_wait_time
+		$Timer.start()
 	
-	var new_wait_time = base_wait_time * (1 - (current_upgrades[upgrade.id]["quantity"] * .1))
-	$Timer.wait_time = new_wait_time
-	$Timer.start()
+	if upgrade.id == "sword_damage":
+		base_damage_percent = 1 + (.15 * current_upgrades["sword_damage"]["quantity"])
+	
 	
 	
 
@@ -55,4 +58,4 @@ func on_timer_timeout():
 	
 	foreground_layer.add_child(sword_instance)
 
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = damage * base_damage_percent
