@@ -1,6 +1,30 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmvfg6y2lgobx"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bmvfg6y2lgobx"]
 
-[ext_resource type="FontFile" uid="uid://ctdc87wcdgvk5" path="res://resources/theme/pixelFont-7-8x14-sproutLands.ttf" id="1_vfv43"]
+[ext_resource type="Texture2D" uid="uid://obtc6y7jr6wh" path="res://assets/ui/ui.png" id="1_oacy4"]
+[ext_resource type="FontFile" uid="uid://dqu8lfbn2q3uw" path="res://resources/theme/Uranus_Pixel_11Px.ttf" id="2_oacy4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oacy4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_oacy4")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(18, 2, 12, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl3fy"]
+texture = ExtResource("1_oacy4")
+texture_margin_left = 3.0
+texture_margin_top = 6.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 16, 16)
 
 [resource]
-default_font = ExtResource("1_vfv43")
+default_font = ExtResource("2_oacy4")
+AltPanelContainer/base_type = &"PanelContainer"
+AltPanelContainer/styles/panel = SubResource("StyleBoxTexture_oacy4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_tl3fy")

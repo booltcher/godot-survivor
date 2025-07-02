@@ -10,13 +10,15 @@ func _ready() -> void:
 	
 
 func set_upgrade_list(upgrades: Array[AbilityUpgrade]):
-	print("upgrades list:", upgrades)
+	var delay = 0
 	
 	for upgradeItem in upgrades:
 		var card_instance = upgrade_card_item_scene.instantiate()
 		h_box_container.add_child(card_instance)
+		card_instance.play_in(delay)
 		card_instance.set_upgrade_data(upgradeItem)
 		card_instance.select.connect(on_select_upgrade.bind(upgradeItem))
+		delay += 0.2
 
 func on_select_upgrade(upgrade: AbilityUpgrade):
 	select_upgrade.emit(upgrade)
