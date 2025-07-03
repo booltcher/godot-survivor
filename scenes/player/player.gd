@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-const MAX_SPEED = 125
-const ACC = 25
 var collision_bodies_count = 0
 @onready var hurt_interval_timer: Timer = $HurtIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
@@ -10,8 +8,12 @@ var collision_bodies_count = 0
 @onready var abilities: Node = $Abilities
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
+@onready var velocity_component: VelocityComponent = $VelocityComponent
+
+var base_speed = 0
 
 func _ready():
+	base_speed = velocity_component.max_speed
 	health_component.health_change.connect(on_health_change)
 	update_health_bar_display(health_component.current_health)
 	GameEvents.update_ability_upgrades.connect(on_update_ability_upgrades)
@@ -19,10 +21,10 @@ func _ready():
 
 func _process(delta: float) -> void:
 	var movement_vector = get_movement_vector()
-	var target_velocity = movement_vector * MAX_SPEED
-	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACC))
+	var direction = movement_vector.normalized()
 	
-	move_and_slide()
+	velocity_component.accelerate_in_direction(direction)
+	velocity_component.move(self)
 	
 	if movement_vector.x == 0 &&  movement_vector.y == 0:
 		animation_player.play("RESET")
@@ -34,11 +36,14 @@ func _process(delta: float) -> void:
 		visual.scale = Vector2(move_sign, 1)
 
 
-func on_update_ability_upgrades(upgrade: AbilityUpgrade, _other):
-	if not upgrade is AbilityUpgradeWithController:
-		return
-	var new_upgrade = upgrade as AbilityUpgradeWithController
-	abilities.add_child(new_upgrade.ability_controller_scene.instantiate())
+func on_update_ability_upgrades(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade is AbilityUpgradeWithController:
+		var new_upgrade = upgrade as AbilityUpgradeWithController
+		abilities.add_child(new_upgrade.ability_controller_scene.instantiate())
+	elif upgrade.id == "move_speed":
+		velocity_component.max_speed = base_speed * (1 + (current_upgrades["move_speed"]["quantity"] * .2))
+	
+	
 
 
 func on_health_change(value):
