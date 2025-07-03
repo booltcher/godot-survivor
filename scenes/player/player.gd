@@ -47,6 +47,7 @@ func on_update_ability_upgrades(upgrade: AbilityUpgrade, current_upgrades: Dicti
 
 
 func on_health_change(value):
+	GameEvents.emit_player_hurt()
 	update_health_bar_display(health_component.current_health_percent)
 
 
