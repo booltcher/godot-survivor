@@ -6,6 +6,7 @@ extends Node2D
 
 
 func collect():
+	Callable(queue_free).call_deferred()
 	GameEvents.emit_collect_experience_vial(1)
 	queue_free()
 
@@ -13,6 +14,10 @@ func collect():
 func disable_collision():
 	collision_shape_2d.disabled = true
 	
+
+func play_sound():
+	audio_stream_player_2d.play()
+
 
 func fly(percent, start_position):
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -33,5 +38,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	tween.tween_property(sprite_2d, "scale", Vector2.ZERO, 0.05).set_delay(0.45)
 	tween.chain()
 	tween.tween_callback(collect)
-
-	audio_stream_player_2d.play()
+	play_sound()
+	
+	

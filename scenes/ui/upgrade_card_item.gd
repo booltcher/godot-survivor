@@ -2,6 +2,9 @@ extends PanelContainer
 
 @onready var name_label: Label = $%NameLabel
 @onready var desc_label: Label = $%DescLabel
+@onready var hover_sound: AudioStreamPlayer = $HoverSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
 signal select
 
 var disabled = false
@@ -40,9 +43,10 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("left_click"):
 		select_card()
-		
+		click_sound.play()
 		
 		
 
 func _on_mouse_entered() -> void:
 	$HoverAnimationPlayer.play("hover")
+	hover_sound.play()
