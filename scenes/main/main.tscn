@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://i6jf8esxcv1j"]
+[gd_scene load_steps=14 format=4 uid="uid://i6jf8esxcv1j"]
 
 [ext_resource type="PackedScene" uid="uid://bs5mbjwnq55i5" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="TileSet" uid="uid://cg3mjenr8k2my" path="res://resources/tileset.tres" id="1_iuonh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1g3joy3xshfv" path="res://scenes/ui/end_view.tscn" id="4_blune"]
 [ext_resource type="PackedScene" uid="uid://f1ln5vlrwcef" path="res://scenes/ui/arena_time_ui.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://tqkq0dhfg1vo" path="res://scenes/manager/upgrade_manager.tscn" id="6_b1x3f"]
+[ext_resource type="AudioStream" uid="uid://6j156oxajvjh" path="res://assets/audio/Beat One.mp3" id="13_th5th"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_th5th")
@@ -51,3 +52,11 @@ unique_name_in_owner = true
 position = Vector2(124, 109)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("13_th5th")
+volume_db = -10.0
+autoplay = true
+bus = &"bgm"
+parameters/looping = true

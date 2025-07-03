@@ -21,3 +21,4 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	var victory_view_instance = victory_view_scene.instantiate()
 	add_child(victory_view_instance)
+	victory_view_instance.play_sound()
