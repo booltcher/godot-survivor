@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bg4v73wlydv6s"]
+[gd_scene load_steps=15 format=3 uid="uid://bg4v73wlydv6s"]
 
 [ext_resource type="Script" uid="uid://c7p1jd1uxug33" path="res://scenes/wizard_enemy/wizard_enemy.gd" id="2_8a5gx"]
 [ext_resource type="PackedScene" uid="uid://dykt3xswr33r7" path="res://scenes/component/health_component.tscn" id="2_k7my3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvtswdqawstfx" path="res://scenes/component/velocity_component.tscn" id="5_8tmjy"]
 [ext_resource type="PackedScene" uid="uid://lto1ypqma2em" path="res://scenes/component/death_component.tscn" id="6_0o6tn"]
 [ext_resource type="PackedScene" uid="uid://cw8ksav4nrvyr" path="res://scenes/component/hurtbox_component.tscn" id="7_6woje"]
+[ext_resource type="AudioStream" uid="uid://d3faqvqmvx7wx" path="res://assets/audio/footstep_carpet_002.ogg" id="9_hfsse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3kwy"]
 radius = 13.0
@@ -74,6 +75,7 @@ acceleration = 2.0
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_0o6tn")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visual/Sprite2D")
+sfx = ExtResource("9_hfsse")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_6woje")]
 health_component = NodePath("../HealthComponent")
@@ -99,3 +101,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_nc7og")
 }
 autoplay = "walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_hfsse")
+max_distance = 300.0

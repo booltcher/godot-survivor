@@ -5,12 +5,12 @@ class_name HurtboxComponent
 
 var floating_text_scene = preload("res://scenes/ui/float_text.tscn")
 
+signal real_hurt
+
 func _ready():
 	pass
 
 func _on_area_entered(other_area: Area2D) -> void:
-	
-	
 	if not other_area is HitboxComponent:
 		return
 		
@@ -27,3 +27,5 @@ func _on_area_entered(other_area: Area2D) -> void:
 	
 	floating_text_instance.global_position = global_position 
 	floating_text_instance.start(str(int(hitbox_component.damage)))
+	
+	real_hurt.emit()

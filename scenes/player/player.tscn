@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs5mbjwnq55i5"]
+[gd_scene load_steps=14 format=3 uid="uid://bs5mbjwnq55i5"]
 
 [ext_resource type="Texture2D" uid="uid://b8ckh2nbdf7to" path="res://scenes/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dfmfhckg3we2c" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://cie61pqni310o" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://dykt3xswr33r7" path="res://scenes/component/health_component.tscn" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://bvtswdqawstfx" path="res://scenes/component/velocity_component.tscn" id="4_p47bc"]
+[ext_resource type="AudioStream" uid="uid://bo86dgchfghaq" path="res://assets/audio/impactMining_000.ogg" id="6_75vfm"]
 
 [sub_resource type="Animation" id="Animation_p47bc"]
 length = 0.001
@@ -149,6 +150,10 @@ shape = SubResource("CircleShape2D_8afob")
 [node name="HurtIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_75vfm")
+max_distance = 300.0
 
 [connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
 [connection signal="body_exited" from="HurtArea" to="." method="_on_hurt_area_body_exited"]

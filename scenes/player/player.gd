@@ -9,6 +9,7 @@ var collision_bodies_count = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
 @onready var velocity_component: VelocityComponent = $VelocityComponent
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var base_speed = 0
 
@@ -48,6 +49,7 @@ func on_update_ability_upgrades(upgrade: AbilityUpgrade, current_upgrades: Dicti
 
 func on_health_change(value):
 	GameEvents.emit_player_hurt()
+	audio_stream_player_2d.play()
 	update_health_bar_display(health_component.current_health_percent)
 
 
@@ -63,7 +65,6 @@ func check_deal_damage():
 		return
 
 	health_component.damage(1)
-	
 	hurt_interval_timer.start()
 	
 func update_health_bar_display(value):

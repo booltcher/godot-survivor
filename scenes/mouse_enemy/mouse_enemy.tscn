@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cntibsmpr8ono"]
+[gd_scene load_steps=18 format=3 uid="uid://cntibsmpr8ono"]
 
 [ext_resource type="Script" uid="uid://bscjwtfqrnug7" path="res://scenes/mouse_enemy/mouse_enemy.gd" id="2_480g2"]
 [ext_resource type="PackedScene" uid="uid://dykt3xswr33r7" path="res://scenes/component/health_component.tscn" id="2_wkka2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cw8ksav4nrvyr" path="res://scenes/component/hurtbox_component.tscn" id="7_akxox"]
 [ext_resource type="Shader" uid="uid://d2ciwx0udrj7d" path="res://scenes/component/hit_flash_component.gdshader" id="7_tqynq"]
 [ext_resource type="Texture2D" uid="uid://dxdjtwse7bhib" path="res://scenes/basic_enemy/basic_enemy.png" id="8_xmb4w"]
+[ext_resource type="AudioStream" uid="uid://cwuytcn5ghw3a" path="res://assets/audio/footstep_carpet_000.ogg" id="11_r7di6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7di6"]
 resource_local_to_scene = true
@@ -84,6 +85,7 @@ hit_flash_component_material = SubResource("ShaderMaterial_r7di6")
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_sixu8")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visual/Sprite2D")
+sfx = ExtResource("11_r7di6")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_akxox")]
 health_component = NodePath("../HealthComponent")
@@ -109,3 +111,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_nc7og")
 }
 autoplay = "walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_r7di6")
+max_distance = 300.0

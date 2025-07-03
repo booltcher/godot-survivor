@@ -2,12 +2,15 @@ extends Node2D
 
 @export var health_component: Node
 @export var sprite: Sprite2D
+@export var sfx: AudioStream
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	gpu_particles_2d.texture = sprite.texture
 	health_component.died.connect(on_died)
+	audio_stream_player_2d.stream = sfx
 
 
 func on_died():
@@ -20,3 +23,4 @@ func on_died():
 	animation_player.play('death')
 	
 	global_position = spawn_position
+	audio_stream_player_2d.play()

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func collect():
@@ -32,3 +33,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	tween.tween_property(sprite_2d, "scale", Vector2.ZERO, 0.05).set_delay(0.45)
 	tween.chain()
 	tween.tween_callback(collect)
+
+	audio_stream_player_2d.play()
