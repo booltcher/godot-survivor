@@ -2,6 +2,7 @@ extends Node
 
 @export var defeat_view_scene: PackedScene
 
+
 func _ready() -> void:
 	$%Player.health_component.died.connect(on_player_died)
 
