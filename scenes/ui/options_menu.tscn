@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wh1btuqrgmwp" path="res://scenes/ui/sound_button.tscn" id="3_0ejsc"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_imaij")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -114,7 +115,7 @@ text = "Back
 "
 
 [node name="Vignette" parent="." instance=ExtResource("2_0ejsc")]
-layer = 2
+layer = 3
 
 [connection signal="value_changed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/BgmSlider" to="." method="_on_bgm_slider_value_changed"]

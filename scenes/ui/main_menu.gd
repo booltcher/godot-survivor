@@ -17,5 +17,4 @@ func _on_quit_button_pressed() -> void:
 
 
 func on_back_to_before(option_board_instance: Node):
-	print("123")
 	option_board_instance.queue_free()
