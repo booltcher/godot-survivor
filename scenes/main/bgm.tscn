@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqek4sd4c1t7b"]
+
+[ext_resource type="AudioStream" uid="uid://6j156oxajvjh" path="res://assets/audio/Beat One.mp3" id="1_mnqxs"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_mnqxs")
+volume_db = -10.0
+autoplay = true
+bus = &"bgm"
+parameters/looping = true

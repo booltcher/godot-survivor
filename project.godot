@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="godot-survivor"
-run/main_scene="uid://i6jf8esxcv1j"
+run/main_scene="uid://c5oue87t808dt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
+Bgm="*res://scenes/main/bgm.tscn"
 
 [display]
 
