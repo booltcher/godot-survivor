@@ -3,6 +3,8 @@ extends CanvasLayer
 var option_board = preload("res://scenes/ui/options_menu.tscn")
 
 func _on_play_button_pressed() -> void:
+	TransitionView.transition()
+	await TransitionView.transition_done
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 
