@@ -12,6 +12,8 @@ config_version=5
 
 config/name="godot-survivor"
 run/main_scene="uid://c5oue87t808dt"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Godot2DSurvivor"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +22,7 @@ config/icon="res://icon.svg"
 GameEvents="*res://scenes/autoload/game_events.tscn"
 Bgm="*res://scenes/main/bgm.tscn"
 TransitionView="*res://scenes/autoload/transition_view.tscn"
+GameMetadata="*res://scenes/autoload/game_metadata.tscn"
 
 [display]
 
@@ -45,6 +48,7 @@ enemy=""
 foreground_layer=""
 entities_layer=""
 upgrade_cards=""
+meta_cards=""
 
 [gui]
 

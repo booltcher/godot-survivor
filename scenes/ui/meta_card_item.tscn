@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdfgbftv51uvt"]
+[gd_scene load_steps=9 format=3 uid="uid://bdfgbftv51uvt"]
 
 [ext_resource type="Script" uid="uid://dp3mfofhjofoj" path="res://scenes/ui/meta_card_item.gd" id="1_v1uny"]
 [ext_resource type="FontFile" uid="uid://dqu8lfbn2q3uw" path="res://resources/theme/Uranus_Pixel_11Px.ttf" id="2_lgf1p"]
@@ -68,17 +68,7 @@ _data = {
 &"select": SubResource("Animation_3fwie")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgf1p"]
-content_margin_top = 3.0
-content_margin_bottom = 3.0
-bg_color = Color(0.458824, 0.890196, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.458824, 0.890196, 1, 0)
-
-[node name="MetaCardItem" type="PanelContainer" groups=["upgrade_cards"]]
+[node name="MetaCardItem" type="PanelContainer" groups=["meta_cards"]]
 custom_minimum_size = Vector2(120, 150)
 offset_right = 122.0
 offset_bottom = 150.0
@@ -136,40 +126,32 @@ autowrap_mode = 2
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MariginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
+theme_override_constants/separation = -1
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HboxContainer"]
 z_index = 1
 layout_mode = 2
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 11.0
-offset_bottom = 11.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_lgf1p")
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer"]
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_lgf1p")
-max_value = 1.0
-value = 0.5
-show_percentage = false
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HboxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.691359, 0.691356, 0.691357, 1)
 theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 14
 text = "50/100"
 
 [node name="PurchaseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_hbqgt")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Purchase"
 

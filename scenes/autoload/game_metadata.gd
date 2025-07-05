@@ -3,7 +3,7 @@ extends Node
 const SAVE_FILE_PATH = "user://game.save"
 
 var save_data: Dictionary = {
-	"meta_upgrade_points": 0,
+	"meta_upgrade_currency": 0,
 	"meta_upgrade_list": {
 		#"item_id": {
 			#"quantity": 1
@@ -16,6 +16,13 @@ func _ready() -> void:
 	GameEvents.collect_experience_vial.connect(on_collect_experience_vial)
 	load_save_file()
 
+
+func get_currency():
+	return save_data["meta_upgrade_currency"]
+	
+	
+func set_currency(currency):
+	save_data["meta_upgrade_currency"] = currency
 
 
 func load_save_file():
@@ -39,8 +46,9 @@ func add_metadata_upgrade_item(upgrade_item: MetadataUpgradeItem):
 		}
 	
 	save_data["meta_upgrade_list"][upgrade_item.id]["quantity"] += 1
+	save()
 
 
 func on_collect_experience_vial(number: int):
-	save_data["meta_upgrade_points"] += number
+	save_data["meta_upgrade_currency"] += number
 	save()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://caacoygdcr4mq"]
+[gd_scene load_steps=2 format=3 uid="uid://de2vu02uj47oe"]
 
 [ext_resource type="Script" uid="uid://wkj44d4qxs8" path="res://scenes/autoload/game_metadata.gd" id="1_jvul0"]
 
