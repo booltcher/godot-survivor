@@ -15,7 +15,12 @@ run/main_scene="uid://c5oue87t808dt"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Godot2DSurvivor"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.247059, 0.14902, 0.192157, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://cn0skc7mx0nt"
+config/icon="uid://cn0skc7mx0nt"
+config/windows_native_icon="res://assets/icon.ico"
 
 [autoload]
 
@@ -28,9 +33,11 @@ GameMetadata="*res://scenes/autoload/game_metadata.tscn"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
+window/size/mode.debug=0
 
 [file_customization]
 

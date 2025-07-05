@@ -120,7 +120,7 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_lgf1p")
 theme_override_font_sizes/font_size = 14
 text = "这里是测试文本内容"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

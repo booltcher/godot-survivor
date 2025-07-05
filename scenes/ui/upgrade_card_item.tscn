@@ -222,8 +222,8 @@ theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_b7g0g")
 theme_override_font_sizes/font_size = 14
-text = "这里是测试文本内容"
-autowrap_mode = 2
+text = "提高角色20%移动速度"
+autowrap_mode = 3
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gspve")
