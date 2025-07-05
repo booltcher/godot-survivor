@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var option_board = preload("res://scenes/ui/options_menu.tscn")
+var upgrade_board = preload("res://scenes/ui/meta_menu.tscn")
 
 func _on_play_button_pressed() -> void:
 	TransitionView.transition()
@@ -18,5 +19,11 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func on_back_to_before(option_board_instance: Node):
-	option_board_instance.queue_free()
+func on_back_to_before(current_view: Node):
+	current_view.queue_free()
+
+
+func _on_upgrade_button_pressed() -> void:
+	var upgrade_board_instance = upgrade_board.instantiate()
+	add_child(upgrade_board_instance)
+	upgrade_board_instance.back_to_before.connect(on_back_to_before.bind(upgrade_board_instance)) 

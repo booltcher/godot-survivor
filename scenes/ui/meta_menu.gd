@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var grid_container: GridContainer = %GridContainer
 @onready var currency_label: Label = %CurrencyLabel
 
+signal back_to_before
+
 var meta_card_item_scene = preload("res://scenes/ui/meta_card_item.tscn")
 
 func _ready() -> void:
@@ -26,3 +28,7 @@ func init_meta_upgrade_display():
 
 func on_purchase_meta_upgrade(upgrade):
 	update_currency_display()
+
+
+func _on_sound_button_pressed() -> void:
+	back_to_before.emit()

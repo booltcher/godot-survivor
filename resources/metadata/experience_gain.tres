@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_rydop")
 id = "experience_gain"
-max_quantity = 0
+max_quantity = 6
 title = "经验+"
 currency_cost = 10
 description = "击败怪物时小几率获得双倍经验奖励"

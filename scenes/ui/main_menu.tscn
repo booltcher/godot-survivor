@@ -60,6 +60,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
+[node name="UpgradeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_sl1te")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Upgrades"
+
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_sl1te")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -74,5 +79,6 @@ text = "Quit"
 layer = 2
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

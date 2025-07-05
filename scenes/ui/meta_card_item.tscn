@@ -126,20 +126,24 @@ autowrap_mode = 2
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
 mouse_filter = 2
 theme_override_constants/separation = -1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HboxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HboxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_lgf1p")
 
-[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HboxContainer"]
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HboxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -149,6 +153,18 @@ theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 14
 text = "50/100"
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.641084, 0.726941, 0.0976713, 1)
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 12
+text = "Lv10"
+vertical_alignment = 2
 
 [node name="PurchaseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_hbqgt")]
 unique_name_in_owner = true
