@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdfgbftv51uvt"]
+
+[ext_resource type="Script" uid="uid://dp3mfofhjofoj" path="res://scenes/ui/meta_card_item.gd" id="1_v1uny"]
+[ext_resource type="FontFile" uid="uid://dqu8lfbn2q3uw" path="res://resources/theme/Uranus_Pixel_11Px.ttf" id="2_lgf1p"]
+[ext_resource type="Texture2D" uid="uid://bpggpry1xtpuw" path="res://scenes/game_object/experience_vial/experience_vial.png" id="3_lgf1p"]
+[ext_resource type="PackedScene" uid="uid://wh1btuqrgmwp" path="res://scenes/ui/sound_button.tscn" id="4_hbqgt"]
+[ext_resource type="AudioStream" uid="uid://pshywmh0n7dw" path="res://assets/audio/switch16.ogg" id="4_nor8r"]
+
+[sub_resource type="Animation" id="Animation_3q1nr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3fwie"]
+resource_name = "select"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gspve"]
+_data = {
+&"RESET": SubResource("Animation_3q1nr"),
+&"select": SubResource("Animation_3fwie")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgf1p"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.458824, 0.890196, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.458824, 0.890196, 1, 0)
+
+[node name="MetaCardItem" type="PanelContainer" groups=["upgrade_cards"]]
+custom_minimum_size = Vector2(120, 150)
+offset_right = 122.0
+offset_bottom = 150.0
+pivot_offset = Vector2(61, 75)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("1_v1uny")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gspve")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"AltPanelContainer"
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "测试"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_lgf1p")
+theme_override_font_sizes/font_size = 14
+text = "这里是测试文本内容"
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MariginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer/Control"]
+z_index = 1
+layout_mode = 2
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 11.0
+offset_bottom = 11.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_lgf1p")
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MariginContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_lgf1p")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "50/100"
+
+[node name="PurchaseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_hbqgt")]
+layout_mode = 2
+text = "Purchase"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nor8r")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PurchaseButton" to="." method="_on_purchase_button_pressed"]
