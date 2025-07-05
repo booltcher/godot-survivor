@@ -51,4 +51,5 @@ func add_metadata_upgrade_item(upgrade_item: MetadataUpgradeItem):
 
 func on_collect_experience_vial(number: int):
 	save_data["meta_upgrade_currency"] += number
+	print("currency:", save_data["meta_upgrade_currency"])
 	save()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://bmvfg6y2lgobx"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bmvfg6y2lgobx"]
 
 [ext_resource type="Texture2D" uid="uid://obtc6y7jr6wh" path="res://assets/ui/ui.png" id="1_oacy4"]
 [ext_resource type="FontFile" uid="uid://dqu8lfbn2q3uw" path="res://resources/theme/Uranus_Pixel_11Px.ttf" id="2_oacy4"]
@@ -87,6 +87,37 @@ region_rect = Rect2(0, 0, 16, 16)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvxji"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hkv3"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kpiq"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhmum"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1f8l"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
 [resource]
 default_font = ExtResource("2_oacy4")
 AltPanelContainer/base_type = &"PanelContainer"
@@ -106,3 +137,7 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_oacy4")
 HSlider/styles/slider = SubResource("StyleBoxFlat_tl3fy")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_tl3fy")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_lvxji")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_2hkv3")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_7kpiq")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_qhmum")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_f1f8l")

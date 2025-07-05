@@ -18,7 +18,9 @@ func set_meta_data(upgrade: MetadataUpgradeItem):
 
 func update_display():
 	var currency = GameMetadata.get_currency()
-	var current_level = GameMetadata.save_data["meta_upgrade_list"][upgrade.id]["quantity"]
+	var current_level = 0
+	if GameMetadata.save_data["meta_upgrade_list"].has(upgrade.id):
+		current_level = GameMetadata.save_data["meta_upgrade_list"][upgrade.id]["quantity"]
 	name_label.text = upgrade.title
 	desc_label.text = upgrade.description
 	cost_label.text = str(currency) + "/" + str(upgrade.currency_cost)

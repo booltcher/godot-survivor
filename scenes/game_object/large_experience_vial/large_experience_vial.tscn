@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://lj7whak31xjk"]
+
+[ext_resource type="Script" uid="uid://c5s53uhkw5xhj" path="res://scenes/game_object/large_experience_vial/large_experience_vial.gd" id="1_kxsdx"]
+[ext_resource type="Texture2D" uid="uid://eymu2rxvg0f1" path="res://scenes/game_object/large_experience_vial/large_experience_vial.png" id="2_kxsdx"]
+[ext_resource type="AudioStream" uid="uid://burc5byswplog" path="res://assets/audio/impactGeneric_light_000.ogg" id="3_patiy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmuu1"]
+radius = 16.0
+
+[node name="LargeExperienceVial" type="Node2D"]
+script = ExtResource("1_kxsdx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jmuu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kxsdx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_patiy")
+max_distance = 300.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
