@@ -24,13 +24,13 @@ func get_spawn_position():
 	if not player_node:
 		return Vector2.ZERO
 	
-	
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	
 	for i in 4:
 		spawn_position = player_node.global_position + (random_direction * SPAWN_RADIUS)
-		var raycast_instance = PhysicsRayQueryParameters2D.create(player_node.global_position, spawn_position, 1)
+		var additional_check_offset = random_direction * 20
+		var raycast_instance = PhysicsRayQueryParameters2D.create(player_node.global_position, spawn_position + additional_check_offset, 1)
 		var raycase_result = get_tree().root.world_2d.direct_space_state.intersect_ray(raycast_instance)
 		
 		if raycase_result.is_empty():
